@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Gaspar Campos - Bachiller en Economía y Administración</title>
+    <style>
+        /* palette exported from imgcolorpicker.org */
+        :root {
+            --color-1: #CE421E;
+            --color-2: #272C23;
+            --color-3: #ffffff;
+            --color-4: #3a9c42;
+            --color-5: #efefef;
+            --color-6: #42a542;
+            --color-7: #3a9c3a;
+            --color-8: #ce3a21;
+            --color-9: #d64221;
+            --color-10: #f7f7f7;
+            --color-11: #d64a21;
+            --color-12: #429c42;
+            --color-13: #3a9442;
+            --color-14: #ce4221;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-5);
+            color: var(--color-2);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== ENCABEZADO ===== */
+        header {
+            background-color: var(--color-2);
+            color: var(--color-3);
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo-container img {
+            height: 60px;
+        }
+
+        /* ===== NAVEGACIÓN ===== */
+        .nav-bar {
+            background-color: var(--color-4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            display: block;
+            color: var(--color-3);
+            text-decoration: none;
+            padding: 0.8rem 15px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            background-color: var(--color-1);
+        }
+
+        /* Hamburguesa */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.8rem 0;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: var(--color-3);
+            margin: 3px 0;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* ===== SECCIÓN HERO ===== */
+        .hero {
+            background: url('https://images.pexels.com/photos/5905475/pexels-photo-5905475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
+            height: 70vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--color-3);
+            padding: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--color-1);
+            color: var(--color-3);
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--color-8);
+        }
+
+        /* ===== SECCIONES GENERALES ===== */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-2);
+            font-size: 2rem;
+        }
+
+        .section h3 {
+            color: var(--color-4);
+        }
+
+        .section p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            text-align: center;
+        }
+
+        /* ===== EL INSTITUTO ===== */
+        .historia-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .historia-img {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .historia-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .historia-texto {
+            flex: 1.5;
+        }
+
+        .cards-mision-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .card-info {
+            background: var(--color-3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-info h3 {
+            color: var(--color-1);
+        }
+
+        /* ===== BACHILLER ===== */
+        .bachiller-img {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .bachiller-img img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* ===== ACTIVIDADES ===== */
+        .actividades-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .actividad-item {
+            background: var(--color-3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .actividad-item h4 {
+            color: var(--color-4);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== INSTALACIONES Y DEPORTES ===== */
+        .instalaciones-deportes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--color-2);
+            color: var(--color-3);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* ===== RESPONSIVE (MÓVIL) ===== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--color-4);
+                flex-direction: column;
+                display: none;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .historia-container {
+                flex-direction: column;
+            }
+
+            .cards-mision-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .instalaciones-deportes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .btn {
+                padding: 8px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container logo-container">
+            <img src="logoigc (1).png" alt="Logo Instituto Gaspar Campos">
+            <h1>Instituto Gaspar Campos</h1>
+        </div>
+    </header>
+
+    <!-- BARRA DE NAVEGACIÓN CON HAMBURGUESA -->
+    <nav class="nav-bar">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#instituto">El Instituto</a></li>
+            <li><a href="#bachiller">Bachiller</a></li>
+            <li><a href="#actividades">Actividades</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- SECCIÓN INICIO (HERO) -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>𝘊𝘳𝘦𝘤𝘪𝘦𝘯𝘥𝘰 𝘫𝘶𝘯𝘵𝘰𝘴, 𝘢𝘱𝘳𝘦𝘯𝘥𝘪𝘦𝘯𝘥𝘰 𝘴𝘪𝘦𝘮𝘱𝘳𝘦.</h2>
+            <a href="#instituto" class="btn">Conocé más</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN EL INSTITUTO (HISTORIA PRIMERO, LUEGO MISIÓN Y VISIÓN) -->
+    <section id="instituto" class="section">
+        <div class="container">
+            <h2>El Instituto</h2>
+
+            <!-- HISTORIA CON IMAGEN -->
+            <div class="historia-container">
+                <div class="historia-img">
+                    <img src="https://images.pexels.com/photos/3771072/pexels-photo-3771072.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Edificio histórico del Instituto Gaspar Campos">
+                </div>
+                <div class="historia-texto">
+                    <h3>Nuestra Historia</h3>
+                    <p>El Instituto Gaspar Campos fue fundado en 1995 por un grupo de docentes y vecinos de San Miguel con el objetivo de ofrecer una propuesta educativa cercana y exigente. Desde sus inicios adoptó la orientación en Economía y Administración, siendo pionero en la zona.</p>
+                    <p>A lo largo de estos años, ha formado a cientos de egresados que hoy se desempeñan en empresas, emprendimientos propios y estudios superiores. La institución se caracteriza por su ambiente familiar, el diálogo permanente con las familias y una constante actualización de sus recursos pedagógicos y tecnológicos.</p>
+                </div>
+            </div>
+
+            <!-- MISIÓN Y VISIÓN EN TARJETAS PARALELAS -->
+            <div class="cards-mision-vision">
+                <div class="card-info">
+                    <h3>Misión</h3>
+                    <p>Brindar una educación secundaria de calidad, orientada a la formación de jóvenes con valores éticos, espíritu crítico y sólidos conocimientos en economía y administración, capaces de integrarse activamente en la sociedad y el mundo laboral.</p>
+                </div>
+                <div class="card-info">
+                    <h3>Visión</h3>
+                    <p>Ser una institución educativa de referencia en la zona, reconocida por su excelencia académica, su acompañamiento personalizado y su compromiso con la formación integral de cada estudiante, promoviendo el aprendizaje continuo y la innovación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN BACHILLER -->
+    <section id="bachiller" class="section" style="background-color: var(--color-10);">
+        <div class="container">
+            <h2>Bachiller en Economía y Administración</h2>
+            <p style="max-width: 800px; margin: auto; text-align: center;">
+                Nuestra escuela ofrece únicamente esta orientación, lo que nos permite especializarnos y brindar una formación profunda y actualizada en el área.
+            </p>
+
+            <!-- Imagen representativa de la orientación -->
+            <div class="bachiller-img">
+                <img src="https://images.pexels.com/photos/5905557/pexels-photo-5905557.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Estudiantes trabajando en proyecto de economía">
+            </div>
+
+            <div class="grid-2">
+                <div class="card-info">
+                    <h3>Perfil del Egresado</h3>
+                    <p>El alumno que egresa del Instituto Gaspar Campos está capacitado para:</p>
+                    <ul>
+                        <li>Comprender y analizar procesos económicos y organizacionales.</li>
+                        <li>Utilizar herramientas contables y administrativas básicas.</li>
+                        <li>Desarrollar proyectos de emprendimiento.</li>
+                        <li>Interpretar la realidad socioeconómica con responsabilidad ciudadana.</li>
+                        <li>Continuar estudios superiores en carreras afines.</li>
+                    </ul>
+                </div>
+                <div class="card-info">
+                    <h3>Materias Específicas</h3>
+                    <p>Además de las materias del tronco común, los estudiantes cursan:</p>
+                    <ul>
+                        <li>Economía (3º a 6º año)</li>
+                        <li>Administración (4º a 6º)</li>
+                        <li>Sistemas de Información Contable</li>
+                        <li>Gestión Organizacional</li>
+                        <li>Proyecto Organizacional (6º año)</li>
+                        <li>Matemática Financiera</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem;">
+                La orientación se complementa con talleres de práctica profesionalizante, visitas a empresas y simulaciones empresariales.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ACTIVIDADES -->
+    <section id="actividades" class="section">
+        <div class="container">
+            <h2>Actividades</h2>
+            <p>Fomentamos la participación activa de los estudiantes en diversas propuestas que enriquecen su formación.</p>
+
+            <div class="actividades-lista">
+                <div class="actividad-item">
+                    <h4>Salidas Educativas</h4>
+                    <p>Visitas a museos, empresas, bolsa de comercio, Tecnópolis, y más.</p>
+                </div>
+                <div class="actividad-item">
+                    <h4>Feria de Ciencias</h4>
+                    <p>Proyectos de investigación presentados anualmente con participación distrital.</p>
+                </div>
+                <div class="actividad-item">
+                    <h4>Parlamento Juvenil</h4>
+                    <p>Simulación del proceso legislativo, desarrollando habilidades de debate y argumentación.</p>
+                </div>
+                <div class="actividad-item">
+                    <h4>Proyectos Solidarios</h4>
+                    <p>Campañas de recolección de alimentos, útiles escolares y visitas a hogares.</p>
+                </div>
+                <div class="actividad-item">
+                    <h4>Campamentos</h4>
+                    <p>Convivencias al aire libre que fortalecen vínculos y trabajo en equipo.</p>
+                </div>
+                <div class="actividad-item">
+                    <h4>Feria del Libro</h4>
+                    <p>Encuentro literario con autores, talleres y exposición de trabajos de los alumnos.</p>
+                </div>
+            </div>
+
+            <!-- Imagen de actividad grupal -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Estudiantes en actividad al aire libre" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.15);">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN INSTALACIONES Y DEPORTES -->
+    <section class="section" style="background-color: var(--color-10);">
+        <div class="container">
+            <h2>Instalaciones y Deportes</h2>
+            <div class="instalaciones-deportes">
+                <div class="card-info">
+                    <h3>Nuestras Instalaciones</h3>
+                    <ul>
+                        <li>Biblioteca con más de 3000 volúmenes</li>
+                        <li>Sala de informática con conexión a internet</li>
+                        <li>SUM equipado para actos y talleres</li>
+                        <li>Patio amplio con buffette y kiosco saludable</li>
+                        <li>Aulas accesibles</li>
+                    </ul>
+                </div>
+                <div class="card-info">
+                    <h3>Deportes</h3>
+                    <ul>
+                        <li>Atletismo</li>
+                        <li>Vóley</li>
+                        <li>Fútbol</li>
+                        <li>Handball</li>
+                    </ul>
+                    <p>Participamos en torneos intercolegiales y provinciales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACTO -->
+    <footer id="contacto">
+        <div class="container">
+            <h3 style="color: var(--color-3);">Contacto</h3>
+            <p>Av. Gaspar Campos 3270, San Miguel, Buenos Aires</p>
+            <p>Tel: 011 4451-4766</p>
+            <p>Email: instgasparcampos@hotmail.com</p>
+            <p style="margin-top: 1rem;">&copy; 2026 Instituto Gaspar Campos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú hamburguesa
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace (comportamiento amigable)
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
